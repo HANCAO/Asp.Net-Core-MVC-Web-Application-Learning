@@ -1,0 +1,24 @@
+﻿@using Microsoft.Extensions.Options
+@model WebApplication1.Modules.Department
+@using WebApplication1
+@inject IOptions<WebApplication1Options> options
+
+<tr>
+    @if(Model.EmployeeCount > options.Value.BoldDepartmentEmployeeCountthreshold)
+    {
+        <td><strong>@Model.Name</strong></td>
+    }
+    else
+    {
+        <td>@Model.Name</td>
+    }
+    <td>@Model.Name</td>
+    <td>@Model.Location</td>
+    <td>@Model.EmployeeCount</td>
+
+    <td>
+        <a asp-controller="Employee" asp-action="Index" asp-route-departmentId="@Model.Id">
+            Employees
+        </a>
+    </td>
+</tr>
